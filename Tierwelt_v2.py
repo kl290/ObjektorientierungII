@@ -5,20 +5,12 @@
 
 class Tier:
     def __init__(self, name, verb, geraeusch):
+        if not isinstance((name, verb, geraeusch),
+                          str) or not name.strip() or not verb.strip() or not geraeusch.strip():
+            raise ValueError("Der 'Name' das 'Verb' und das 'Geraeusch' müssen ein nicht leerer String sein.")
         self.name = name
         self.verb = verb
         self.geraeusch = geraeusch
 
     def geraeusch_machen(self):
         print(f"{self.name} {self.verb}: {self.geraeusch}")
-
-
-hund = Tier("Bello", "bellt", "Wuff!")
-katze = Tier("Minka", "miaut", "Miau!")
-kuh = Tier("Lise", "muht", "Muh!")
-schaf = Tier("Olaf", "schreit", "Mäh!")
-
-hund.geraeusch_machen()
-katze.geraeusch_machen()
-kuh.geraeusch_machen()
-schaf.geraeusch_machen()

@@ -1,37 +1,31 @@
 class Tier:
-    def __init__(self, name):  #
+    def __init__(self, name):
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError("Der Name muss ein nicht leerer String sein.")
         self.name = name
 
+    def info(self):
+        return f"Das Tier heißt {self.name}."
+
     def geraeusch_machen(self):
-        print(f"{self.name} macht ein Geräusch.")
+        return f"{self.name} macht ein Geräusch."
 
 
 class Hund(Tier):
     def geraeusch_machen(self):
-        print(f"{self.name} bellt: Wuff!")
+        return f"{self.name} bellt: Wuff!"
 
 
 class Katze(Tier):
     def geraeusch_machen(self):
-        print(f"{self.name} miaut: Miau!")
+        return f"{self.name} miaut: Miau!"
 
 
 class Kuh(Tier):
     def geraeusch_machen(self):
-        print(f"{self.name} muht: Muh!")
+        return f"{self.name} muht: Muh!"
 
 
 class Schaf(Tier):
     def geraeusch_machen(self):
-        print(f"{self.name} schreit: Mäh!")
-
-
-hund = Hund("Bello")
-katze = Katze("Minka")
-kuh = Kuh("Lise")
-schaf = Schaf("Olaf")
-
-hund.geraeusch_machen()
-katze.geraeusch_machen()
-kuh.geraeusch_machen()
-schaf.geraeusch_machen()
+        return f"{self.name} schreit: Mäh!"
